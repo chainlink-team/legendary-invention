@@ -12,10 +12,14 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        'red-magic': '#F1324D',
+        'blue-magic': '#2414E3'
+      },
+      fontFamily: {
+        'display': ['ClashDisplay-Variable']
+      },
     },
-    fontFamily: {
-      'display': ['ClashDisplay-Variable']
-    }
   },
   plugins: [],
 }

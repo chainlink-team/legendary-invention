@@ -1,0 +1,7 @@
+.magic-gradient {
+  @apply bg-gradient-to-r from-red-magic to-blue-magic;
+}
+
+.text-hover-gradient {
+  @apply hover:bg-gradient-to-r hover:from-red-magic hover:to-blue-magic bg-white transition-colors bg-clip-text text-transparent;
+}
