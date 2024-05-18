@@ -3,6 +3,7 @@ import HeroSection from './_components/HeroSection'
 import Navbar from './_components/Navbar'
 import SponsorSection from './_components/SponsorSection'
 import Footer from './_components/Footer'
+import LetsPlaySection from './_components/LetsPlaySection'
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
       <HeroSection />
       <SponsorSection />
       <FeatureSection />
-      <section id="let'splay"></section>
+      <LetsPlaySection />
       <Footer />
     </main>
   )

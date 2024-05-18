@@ -8,3 +8,7 @@
   background-position: 0% 100%;
   background-repeat: no-repeat;
 }
+
+.bg-hotline {
+  background: url("/images/HotlineMiami.png");
+}

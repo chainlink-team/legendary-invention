@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export default function HeroSection() {
   return (
     <section id="hero" className="min-h-screen items-center flex flex-col pt-36 px-36">
@@ -13,7 +15,7 @@ export default function HeroSection() {
           <a className="text-white font-display rounded-lg py-4 px-6 magic-gradient hover:shadow-lg hover:shadow-red-magic transition-all" type="button" href="/game">Launch game</a>
         </div>
       </div>
-      <img src="/images/HeroImage.png"></img>
+      <Image src="/images/HeroImage.png" width={863} height={487} alt="Hero image"/>
     </section>
   )
 }
