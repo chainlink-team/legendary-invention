@@ -13,7 +13,7 @@ export default function HeroSection() {
           <a className="text-white font-display rounded-lg py-4 px-6 magic-gradient hover:shadow-lg hover:shadow-red-magic transition-all" type="button" href="/game">Launch game</a>
         </div>
       </div>
-      <img src="/HeroImage.png"></img>
+      <img src="/images/HeroImage.png"></img>
     </section>
   )
 }

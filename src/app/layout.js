@@ -1,4 +1,4 @@
-import './globals.css'
+import './_styles/globals.css'
 
 export const metadata = {
   title: 'Powerplay',

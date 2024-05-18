@@ -14,10 +14,12 @@ module.exports = {
       },
       colors: {
         'red-magic': '#F1324D',
-        'blue-magic': '#2414E3'
+        'blue-magic': '#2414E3',
+        'dark-kiss': '#E50498'
       },
       fontFamily: {
-        'display': ['ClashDisplay-Variable']
+        'display': ['ClashDisplay-Variable'],
+        'sans': ['PlusJakartaSans-Variable']
       },
     },
   },

@@ -4,6 +4,8 @@
 
 @import "./colors.css";
 @import "./fonts.css";
+@import "./shadows.css";
+@import "./components.css";
 
 :root {
   --foreground-rgb: 0, 0, 0;
