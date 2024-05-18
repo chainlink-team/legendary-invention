@@ -1,5 +1,4 @@
 import './globals.css'
-import './clash-display.css'
 
 export const metadata = {
   title: 'Powerplay',

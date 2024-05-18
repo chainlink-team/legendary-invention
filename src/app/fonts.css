@@ -87,3 +87,15 @@
   font-display: swap;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "PlusJakartaSans-Variable";
+  src: url("/fonts/PlusJakartaSans VariableFont.woff2") format("woff2");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PlusJakartaSans-Italic-Variable";
+  src: url("/fonts/PlusJakartaSans Italic Variable.woff2") format("woff2");
+  font-style: normal;
+}
