@@ -1,9 +1,11 @@
+import Image from "next/image"
+
 export default function Navbar() {
   return (
     <nav className="bg-[#070005] fixed w-full">
       <div className="flex w-full items-center justify-between py-6 px-8">
         <a href="/" className="logo">
-          <img src="/PowerPlay.png"></img>
+          <Image src="/PowerPlay.png" alt="powerplay image" width={172} height={15}></Image>
         </a>
         <div className="font-display flex gap-12">
           <a className="text-hover-gradient" href="/">Home</a>

@@ -6,7 +6,7 @@ export default function Footer() {
         <div className="w-full h-0.5 magic-gradient"></div>
         <div className="flex w-full items-center justify-between py-[120px] px-8">
           <a href="/" className="logo">
-            <Image src="/PowerPlay.png" alt="powerplay image"></Image>
+            <Image src="/PowerPlay.png" alt="powerplay image" width={172} height={15}></Image>
           </a>
           <div className="font-display flex gap-12">
             <a className="text-hover-gradient" href="/">Home</a>
