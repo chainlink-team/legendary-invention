@@ -5,6 +5,8 @@ import Container from "./Components/Container";
 import Image from "next/image";
 import avax from "../../../public/images/Avax.png";
 import polygon from "../../../public/images/Polygon.png";
+import Footer from "../_components/Footer";
+import { GradientBgButton } from "@/components/GradientBgButton";
 export default function Page() {
   return (
     <>
@@ -82,14 +84,69 @@ export default function Page() {
                 </div>
                 <div className="flex flex-col justify-end gap-4">
                   <GradientBorderButton>Reply</GradientBorderButton>
-                  <button className="w-[120px] magic-gradient rounded-sm py-1 font-display">
-                    Borrow
-                  </button>
+                  <GradientBgButton>Borrow</GradientBgButton>
                 </div>
               </div>
             </div>
           </div>
         </Container>
+        <Container heading={"Deposit Collateral"}>
+          <div className="magic-gradient rounded-md p-0.5">
+            <table className="w-full rounded-lg">
+              <thead className="bg-[#090107] border-gradient   w-full">
+                <tr className="border-b border-gradient">
+                  <th className="text-left py-4 p-10">ASSET</th>
+                  <th className="text-left px-5">PRICE</th>
+                  <th className="text-left">WALLET BALANCE</th>
+                  <th className="text-left px-5">APY</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody className="bg-[#13020E]">
+                <tr className="">
+                  <td className="flex py-4 gap-3 pl-10">
+                    <Image src={polygon} width={20} height={20} alt="polygon" />
+                    MATIC (Mumbia testnet)
+                  </td>
+                  <td className="px-5">$0.93</td>
+                  <td>0.22</td>
+                  <td className="px-5">0.94%</td>
+                  <td className="flex items-center  justify-center gap-5">
+                    <GradientBorderButton>Withdraw</GradientBorderButton>
+                    <GradientBgButton>Deposit</GradientBgButton>
+                  </td>
+                </tr>
+                <tr className="py-4">
+                  <td className="flex py-4 gap-3 pl-10">
+                    <Image src={polygon} width={20} height={20} alt="polygon" />
+                    MATIC (Mumbia testnet)
+                  </td>
+                  <td className="px-5">$0.93</td>
+                  <td>0.22</td>
+                  <td className="px-5">0.94%</td>
+                  <td className="flex items-center justify-center gap-5">
+                    <GradientBorderButton>Withdraw</GradientBorderButton>
+                    <GradientBgButton>Deposit</GradientBgButton>
+                  </td>
+                </tr>
+                <tr className="py-4">
+                  <td className="flex py-4 gap-3 pl-10">
+                    <Image src={polygon} width={20} height={20} alt="polygon" />
+                    MATIC (Mumbia testnet)
+                  </td>
+                  <td className="px-5">$0.93</td>
+                  <td>0.22</td>
+                  <td className="px-5">0.94%</td>
+                  <td className="flex items-center py-4 justify-center gap-5">
+                    <GradientBorderButton>Withdraw</GradientBorderButton>
+                    <GradientBgButton>Deposit</GradientBgButton>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Container>
+        <Footer />
       </div>
     </>
   );
