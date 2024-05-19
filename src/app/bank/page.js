@@ -33,7 +33,7 @@ export default function Page() {
         <Container heading={"Borrow"}>
           <div className="flex w-full justify-between my-4">
             <div className="magic-gradient p-0.5 rounded-md">
-              <div className="bg-[#13020E] font-sans flex gap-6 px-4 py-6 rounded-md">
+              <div className="bg-[#13020E] font-sans flex gap-10 px-4 py-6 rounded-md">
                 <div className="flex  flex-col gap-3">
                   <h5 className="text-xl font-sans">CURRENT</h5>
                   <span className="flex items-center mb-5 gap-1">
@@ -62,7 +62,7 @@ export default function Page() {
               </div>
             </div>
             <div className="magic-gradient p-0.5 rounded-md">
-              <div className="bg-[#13020E] font-sans flex gap-3 px-4 py-6 rounded-md">
+              <div className="bg-[#13020E] font-sans flex gap-10 px-4 py-6 rounded-md">
                 <div className="flex  flex-col gap-3">
                   <h5 className="text-xl font-sans">CURRENT</h5>
                   <span className="flex items-center mb-5 gap-1">
