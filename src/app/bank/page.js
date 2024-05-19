@@ -91,10 +91,10 @@ export default function Page() {
           </div>
         </Container>
         <Container heading={"Deposit Collateral"}>
-          <div className="magic-gradient rounded-md p-0.5">
+          <div className="magic-gradient rounded-md mt-5 p-0.5">
             <table className="w-full rounded-lg">
               <thead className="bg-[#090107] border-gradient   w-full">
-                <tr className="border-b border-gradient">
+                <tr className=" border-gradient">
                   <th className="text-left py-4 p-10">ASSET</th>
                   <th className="text-left px-5">PRICE</th>
                   <th className="text-left">WALLET BALANCE</th>
