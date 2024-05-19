@@ -94,7 +94,7 @@ export default function Page() {
           <div className="magic-gradient rounded-md p-0.5">
             <table className="w-full rounded-lg">
               <thead className="bg-[#090107] border-gradient   w-full">
-                <tr className="border-b border-gradient">
+                <tr className=" border-gradient">
                   <th className="text-left py-4 p-10">ASSET</th>
                   <th className="text-left px-5">PRICE</th>
                   <th className="text-left">WALLET BALANCE</th>
@@ -103,6 +103,7 @@ export default function Page() {
                 </tr>
               </thead>
               <tbody className="bg-[#13020E]">
+                <tr className="col-span-full h-0.5 w-full"></tr>
                 <tr className="">
                   <td className="flex py-4 gap-3 pl-10">
                     <Image src={polygon} width={20} height={20} alt="polygon" />
