@@ -103,6 +103,7 @@ export default function Page() {
                 </tr>
               </thead>
               <tbody className="bg-[#13020E]">
+                <tr className="col-span-full h-0.5 w-full"></tr>
                 <tr className="">
                   <td className="flex py-4 gap-3 pl-10">
                     <Image src={polygon} width={20} height={20} alt="polygon" />
