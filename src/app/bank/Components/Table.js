@@ -1,5 +1,5 @@
-import { GradientBgButton } from "@/components/GradientBgButton";
-import { GradientBorderButton } from "@/components/GradientBorderButton";
+import GradientBgButton from "@/components/GradientBgButton";
+import GradientBorderButton from "@/components/GradientBorderButton";
 import Image from "next/image";
 import polygon from "../../../../public/images/Polygon.png";
 

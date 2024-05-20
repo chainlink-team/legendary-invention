@@ -1,4 +1,4 @@
-import { GradientBorderButton } from "@/components/GradientBorderButton";
+import GradientBorderButton from "@/components/GradientBorderButton";
 import Image from "next/image";
 
 export default function HeroSection() {

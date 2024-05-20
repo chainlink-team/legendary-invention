@@ -1,12 +1,12 @@
-import { GradientBorderButton } from "@/components/GradientBorderButton";
+import GradientBorderButton from "@/components/GradientBorderButton";
 import Navbar from "../../components/Navbar";
 import HeaderText from "@/components/HeaderText";
-import Container from "./Components/Container";
+import Container from "./components/Container";
 import Image from "next/image";
 import avax from "../../../public/images/Avax.png";
 import polygon from "../../../public/images/Polygon.png";
 import Footer from "../../components/Footer";
-import { GradientBgButton } from "@/components/GradientBgButton";
+import GradientBgButton from "@/components/GradientBgButton";
 export default function Page() {
   return (
     <>
