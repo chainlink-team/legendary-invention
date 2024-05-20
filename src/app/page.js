@@ -1,12 +1,10 @@
-import FeatureSection from './_components/FeatureSection'
-import HeroSection from './_components/HeroSection'
-import Navbar from './_components/Navbar'
-import SponsorSection from './_components/SponsorSection'
-import Footer from './_components/Footer'
-import LetsPlaySection from './_components/LetsPlaySection'
-import Image from 'next/image'
-import MagicBorder from './_components/MagicBorder'
-import FeatureGameSection from './_components/FeatureGameSection'
+import FeatureSection from '@/components/FeatureSection'
+import HeroSection from '@/components/HeroSection'
+import Navbar from '@/components/Navbar'
+import SponsorSection from '@/components/SponsorSection'
+import Footer from '@/components/Footer'
+import LetsPlaySection from '@/components/LetsPlaySection'
+import FeatureGameSection from '@/components/FeatureGameSection'
 
 export default function Home() {
   return (
