@@ -20,3 +20,7 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+.format-scroll::-webkit-scrollbar {
+  width: 1px;
+}
