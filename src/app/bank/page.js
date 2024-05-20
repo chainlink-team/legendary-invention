@@ -13,7 +13,7 @@ export default function Page() {
       <Navbar />
       <div className="pt-32 bg-sharp-black text-white px-14">
         <HeaderText
-          header={"The Bank"}
+          header="The Bank"
           description={
             "Hey champ! hit the bank and get your asserts to play a game."
           }
@@ -30,10 +30,10 @@ export default function Page() {
           <GradientBorderButton>Lend</GradientBorderButton>
         </div>
         <div className="w-full h-0.5 magic-gradient"></div>
-        <Container heading={"Borrow"}>
+        <Container heading="Borrow">
           <div className="flex w-full justify-between my-4">
             <div className="magic-gradient p-0.5 rounded-md">
-              <div className="bg-[#13020E] font-sans flex gap-10 px-4 py-6 rounded-md">
+              <div className="bg-dark-pink font-sans flex gap-10 px-4 py-6 rounded-md">
                 <div className="flex  flex-col gap-3">
                   <h5 className="text-xl font-sans">CURRENT</h5>
                   <span className="flex items-center mb-5 gap-1">
@@ -47,7 +47,7 @@ export default function Page() {
                     <div className="w-fit p-0.5 rounded-md magic-gradient">
                       <input
                         type="text"
-                        className="bg-[#090107] w-[250px] focus:outline-none p-1 rounded-md"
+                        className="bg-dark-purple w-[250px] focus:outline-none p-1 rounded-md"
                       />
                     </div>
                     <p className="text-sm">Max borrowable: 0.12334345353535</p>
@@ -62,7 +62,7 @@ export default function Page() {
               </div>
             </div>
             <div className="magic-gradient p-0.5 rounded-md">
-              <div className="bg-[#13020E] font-sans flex gap-10 px-4 py-6 rounded-md">
+              <div className="bg-dark-pink font-sans flex gap-10 px-4 py-6 rounded-md">
                 <div className="flex  flex-col gap-3">
                   <h5 className="text-xl font-sans">CURRENT</h5>
                   <span className="flex items-center mb-5 gap-1">
@@ -76,7 +76,7 @@ export default function Page() {
                     <div className="w-fit p-0.5 rounded-md magic-gradient">
                       <input
                         type="text"
-                        className="bg-[#090107] w-[250px] focus:outline-none p-1 rounded-md"
+                        className="bg-dark-purple w-[250px] focus:outline-none p-1 rounded-md"
                       />
                     </div>
                     <p className="text-sm">Max borrowable: 0.12334345353535</p>
@@ -90,10 +90,10 @@ export default function Page() {
             </div>
           </div>
         </Container>
-        <Container heading={"Deposit Collateral"}>
+        <Container heading="Deposit Collateral">
           <div className="magic-gradient rounded-md mt-5 p-0.5">
             <table className="w-full rounded-lg">
-              <thead className="bg-[#090107] border-gradient   w-full">
+              <thead className="bg-dark-purple border-gradient w-full">
                 <tr className=" border-gradient">
                   <th className="text-left py-4 p-10">ASSET</th>
                   <th className="text-left px-5">PRICE</th>
@@ -102,7 +102,7 @@ export default function Page() {
                   <th></th>
                 </tr>
               </thead>
-              <tbody className="bg-[#13020E]">
+              <tbody className="bg-dark-pink">
                 <tr className="col-span-full h-0.5 w-full"></tr>
                 <tr className="">
                   <td className="flex py-4 gap-3 pl-10">
