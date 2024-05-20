@@ -1,4 +1,4 @@
-const HeaderText = ({ header, description }) => {
+export default function HeaderText({ header, description }) {
   return (
     <div>
       <h3 className="text-3xl font-display ">{header}</h3>
@@ -7,5 +7,3 @@ const HeaderText = ({ header, description }) => {
     </div>
   );
 };
-
-export default HeaderText;
