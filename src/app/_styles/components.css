@@ -1,14 +1,18 @@
-.bg-ruby {
-  background: radial-gradient(
-      104.56% 104.56% at 50% 52.81%,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(229, 4, 152, 0.2) 100%
-    ),
-    url("/images/Rubies.png");
-  background-position: 0% 100%;
-  background-repeat: no-repeat;
-}
+@tailwind components;
 
-.bg-hotline {
-  background: url("/images/HotlineMiami.png");
+@layer components {
+  .bg-ruby {
+    background: radial-gradient(
+        104.56% 104.56% at 50% 52.81%,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(229, 4, 152, 0.2) 100%
+      ),
+      url("/images/Rubies.png");
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .bg-hotline {
+    background: url("/images/HotlineMiami.png");
+  }
 }
