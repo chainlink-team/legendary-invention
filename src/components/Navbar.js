@@ -3,7 +3,7 @@ import LaunchGameButton from "./LaunchGameButton"
 
 export default function Navbar() {
   return (
-    <nav className="bg-[#070005] fixed w-full z-10">
+    <nav className="bg-[#070005] fixed w-full z-20">
       <div className="flex w-full items-center justify-between py-6 px-8">
         <a href="/" className="logo">
           <Image src="/PowerPlay.png" alt="powerplay image" width={172} height={15}></Image>
