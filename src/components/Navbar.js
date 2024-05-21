@@ -9,9 +9,9 @@ export default function Navbar() {
           <Image src="/PowerPlay.png" alt="powerplay image" width={172} height={15}></Image>
         </a>
         <div className="font-display flex gap-12">
-          <a className="text-hover-gradient" href="/">Home</a>
-          <a className="text-hover-gradient" href="/game">Game</a>
-          <a className="text-hover-gradient" href="/bank">Bank</a>
+          <a className="text-hover-gradient-home" href="/">Home</a>
+          <a className="text-hover-gradient-game" href="/game">Game</a>
+          <a className="text-hover-gradient-bank" href="/bank">Bank</a>
         </div>
         <LaunchGameButton />
       </div>
