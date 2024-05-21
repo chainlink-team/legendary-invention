@@ -1,22 +1,22 @@
 import HeaderText from "@/components/HeaderText";
 import Image from "next/image";
-import Roullete from "@/images/games/roulette.png";
+import Roulette from "@/images/games/roulette.png";
 import fortune from "@/images/games/fortune-tiger.png";
 import goo from "@/images/games/gates-of-olympus.png";
 import poker from "@/images/games/poker.png";
 
 const MostPlayed = () => {
   const games = [
-    { name: "Roilette", img: Roullete },
+    { name: "Roulette", img: Roulette },
     { name: "Fortune Tiger", img: fortune },
     { name: "Poker", img: poker },
     { name: "Gates of Olympus", img: goo },
-    { name: "Roilette", img: Roullete },
+    { name: "Roulette", img: Roulette },
   ];
   return (
     <div className="my-10">
       <HeaderText
-        header={"Most Played Games"}
+        header="Most Played Games"
         description="Most Player find themselves in these games"
       />
 
@@ -28,7 +28,7 @@ const MostPlayed = () => {
               width={0}
               height={0}
               className="w-full rounded-lg h-full"
-              alt="Roullete"
+              alt="Roulette"
             />
             <span>{games[num].name}</span>
           </div>

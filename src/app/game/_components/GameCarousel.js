@@ -6,8 +6,6 @@ import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 import { useRef } from "react";
 
-// import games from "../../../..";
-
 const GameCarousel = () => {
   const scrollContainerRef = useRef(null);
 
@@ -47,7 +45,6 @@ const GameCarousel = () => {
                 src={games}
                 width={150}
                 height={200}
-                // className=" w-[150px] h-[200px]"
                 alt="games"
               />
             </div>
@@ -70,7 +67,6 @@ const GameCarousel = () => {
                 src={games}
                 width={150}
                 height={200}
-                // className=" w-[150px] h-[200px]"
                 alt="games"
               />
             </div>
@@ -93,7 +89,6 @@ const GameCarousel = () => {
                 src={games}
                 width={150}
                 height={200}
-                // className=" w-[150px] h-[200px]"
                 alt="games"
               />
             </div>
