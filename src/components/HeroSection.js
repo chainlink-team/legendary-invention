@@ -1,5 +1,6 @@
-import GradientBorderButton from "@/components/GradientBorderButton";
 import Image from "next/image";
+import LaunchGameButton from "./LaunchGameButton";
+import ConnectWalletButton from "./ConnectWalletButton";
 
 export default function HeroSection() {
   return (
@@ -20,15 +21,9 @@ export default function HeroSection() {
           <br /> powered by blockchain technology. Discover new games, connect
           with friends, and <br /> unlock endless possibilities.
         </h2>
-        <div className="flex gap-8">
-          <GradientBorderButton>Connect wallet</GradientBorderButton>
-          <a
-            className="text-white font-display rounded-lg py-4 px-6 magic-gradient hover:shadow-lg hover:shadow-red-magic transition-all"
-            type="button"
-            href="/game"
-          >
-            Launch game
-          </a>
+        <div className="flex gap-8 mt-4">
+          <ConnectWalletButton />
+          <LaunchGameButton />
         </div>
       </div>
       <Image
