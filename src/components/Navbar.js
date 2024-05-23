@@ -2,6 +2,8 @@ import Image from "next/image"
 import LaunchGameButton from "./LaunchGameButton"
 
 export default function Navbar() {
+
+
   return (
     <nav className="bg-[#070005] fixed w-full z-20">
       <div className="flex w-full items-center justify-between py-6 px-8">
