@@ -7,7 +7,7 @@ import {
 	CircularProgress
 } from '@mui/material';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
-import { styled } from '@mui/material/styles';
+import { ThemeProvider, styled, createTheme } from '@mui/material/styles';
 import InfoIcon from '@mui/icons-material/Info';
 import ClearIcon from '@mui/icons-material/Clear';
 import UndoIcon from '@mui/icons-material/Undo';
@@ -21,6 +21,8 @@ import { rouletteTutorial, rouletteOdds } from './tutorials'
 import { rouletteABI, rouletteContractAddress, linkABI, linkContractAddress } from './contractDetails'
 import { publicMumbaiClient, walletMumbaiClient } from './ViemClient'
 import { getContract, parseEther } from 'viem'
+import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { muiStyles } from './styles';
 
 const TooltipWide = styled(({ className, ...props }) => (
 	<Tooltip {...props} classes={{ popper: className }} />
@@ -230,7 +232,7 @@ export default function GameRoulette({ ...props }) {
 	const [winnings, setWinnings] = useState(-1)
 	const [rollResult, setRollResult] = useState(-1)
 
-	const { primaryWallet } = useDynamicContext();
+	const primaryWallet = ''// useDynamicContext();
 
 	const [balance, setBalance] = useState(-1)
 
@@ -506,167 +508,171 @@ export default function GameRoulette({ ...props }) {
 		window.location.reload();
 	}
 
+	const theme = createTheme(muiStyles['dark'])
+
 	return (
-		<Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
-			<Grid container sx={{ mt: 5, mx: 10 }} columns={14}>
-				<Grid md={1}><GridZero inside={inside} placeBet={placeBet} /></Grid>
-				<Grid md={4} container columns={12}>
-					{firstThird.map((val, ind) =>
-						<Grid md={3} key={`first-third-${val.val}`}>
-							<GridInside insideNumber={val.val} red={val?.red} topEdge={ind < 4} placeBet={placeBet}
-								straightup={inside[(val.val - 1) * 4 + 1]}
-								splitleft={inside[(val.val - 1) * 4 + 2]}
-								splitbottom={inside[(val.val - 1) * 4 + 3]}
-								corner={inside[(val.val - 1) * 4 + 4]} />
-						</Grid>
-					)}
+		<ThemeProvider theme={theme}>
+			<Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
+				<Grid container sx={{ mt: 5, mx: 10 }} columns={14}>
+					<Grid md={1}><GridZero inside={inside} placeBet={placeBet} /></Grid>
+					<Grid md={4} container columns={12}>
+						{firstThird.map((val, ind) =>
+							<Grid md={3} key={`first-third-${val.val}`}>
+								<GridInside insideNumber={val.val} red={val?.red} topEdge={ind < 4} placeBet={placeBet}
+									straightup={inside[(val.val - 1) * 4 + 1]}
+									splitleft={inside[(val.val - 1) * 4 + 2]}
+									splitbottom={inside[(val.val - 1) * 4 + 3]}
+									corner={inside[(val.val - 1) * 4 + 4]} />
+							</Grid>
+						)}
+					</Grid>
+					<Grid md={4} container columns={12}>
+						{secondThird.map((val, ind) =>
+							<Grid md={3} key={`second-third-${val.val}`}>
+								<GridInside insideNumber={val.val} red={val?.red} topEdge={ind < 4} placeBet={placeBet}
+									straightup={inside[(val.val - 1) * 4 + 1]}
+									splitleft={inside[(val.val - 1) * 4 + 2]}
+									splitbottom={inside[(val.val - 1) * 4 + 3]}
+									corner={inside[(val.val - 1) * 4 + 4]} />
+							</Grid>
+						)}
+					</Grid>
+					<Grid md={4} container columns={12}>
+						{thirdThird.map((val, ind) =>
+							<Grid md={3} key={`third-third-${val.val}`}>
+								<GridInside insideNumber={val.val} red={val?.red} topEdge={ind < 4} placeBet={placeBet}
+									straightup={inside[(val.val - 1) * 4 + 1]}
+									splitleft={inside[(val.val - 1) * 4 + 2]}
+									splitbottom={inside[(val.val - 1) * 4 + 3]}
+									corner={inside[(val.val - 1) * 4 + 4]} />
+							</Grid>
+						)}
+					</Grid>
+					<Grid md={1} sx={{ display: 'flex', alignItems: 'stretch' }}>
+						<Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+							<GridColumnBet topCard={true} columns={columns} index={0} bet={bet} placeBet={placeBet} />
+							<GridColumnBet columns={columns} index={1} bet={bet} placeBet={placeBet} />
+							<GridColumnBet bottomCard={true} columns={columns} index={2} bet={bet} placeBet={placeBet} />
+						</Box>
+					</Grid>
+
+					<Grid md={1} />
+					<Grid md={4}>
+						<GridOutsideBet onClick={(e) => placeBet(e, 'dozens', 0)}>
+							<Typography variant='h5'>1st 12</Typography>
+							{dozens[0] > 0 && <BetBox betValue={dozens[0]} betType='1st 12' onClick={(e) => placeBet(e, 'dozens', 0)} />}
+						</GridOutsideBet>
+					</Grid>
+					<Grid md={4}>
+						<GridOutsideBet onClick={(e) => placeBet(e, 'dozens', 1)}>
+							<Typography variant='h5'>2nd 12</Typography>
+							{dozens[1] > 0 && <BetBox betValue={dozens[1]} betType='2nd 12' onClick={(e) => placeBet(e, 'dozens', 1)} />}
+						</GridOutsideBet>
+					</Grid>
+					<Grid md={4}>
+						<GridOutsideBet rightCard={true} onClick={(e) => placeBet(e, 'dozens', 2)}>
+							<Typography variant='h5'>3rd 12</Typography>
+							{dozens[2] > 0 && <BetBox betValue={dozens[2]} betType='3rd 12' onClick={(e) => placeBet(e, 'dozens', 2)} />}
+						</GridOutsideBet>
+					</Grid>
+					<Grid md={1} sx={{ borderLeft: (theme) => `10px solid ${theme.palette.dark.card}` }} />
+
+					<Grid md={1} />
+					<Grid md={2}>
+						<GridOutsideBet onClick={(e) => placeBet(e, 'under')}>
+							<Typography variant='h5'>1-18</Typography>
+							{under > 0 && <BetBox betValue={under} betType='Under (1-18)' onClick={(e) => placeBet(e, 'under')} />}
+						</GridOutsideBet>
+					</Grid>
+					<Grid md={2}>
+						<GridOutsideBet onClick={(e) => placeBet(e, 'even')}>
+							<Typography variant='h5'>Even</Typography>
+							{even > 0 && <BetBox betValue={even} betType='Even' onClick={(e) => placeBet(e, 'even')} />}
+						</GridOutsideBet>
+					</Grid>
+					<Grid md={2}>
+						<GridOutsideBet onClick={(e) => placeBet(e, 'red')}>
+							<Box sx={{ width: '32px', height: '32px', backgroundColor: (theme) => theme.palette.game.red }} />
+							{red > 0 && <BetBox betValue={red} betType='Red' onClick={(e) => placeBet(e, 'red')} />}
+						</GridOutsideBet>
+					</Grid>
+					<Grid md={2}>
+						<GridOutsideBet onClick={(e) => placeBet(e, 'black')}>
+							<Box sx={{ width: '32px', height: '32px', backgroundColor: (theme) => theme.palette.dark.bg }} />
+							{black > 0 && <BetBox betValue={black} betType='Black' onClick={(e) => placeBet(e, 'black')} />}
+						</GridOutsideBet>
+					</Grid>
+					<Grid md={2}>
+						<GridOutsideBet onClick={(e) => placeBet(e, 'odd')}>
+							<Typography variant='h5'>Odd</Typography>
+							{odd > 0 && <BetBox betValue={odd} betType='Odd' onClick={(e) => placeBet(e, 'odd')} />}
+						</GridOutsideBet>
+					</Grid>
+					<Grid md={2}>
+						<GridOutsideBet rightCard={true} onClick={(e) => placeBet(e, 'over')}>
+							<Typography variant='h5'>19-36</Typography>
+							{over > 0 && <BetBox betValue={over} betType='Over (19-36)' onClick={(e) => placeBet(e, 'over')} />}
+						</GridOutsideBet>
+					</Grid>
+					<Grid md={1} sx={{ borderLeft: (theme) => `10px solid ${theme.palette.dark.card}` }} />
 				</Grid>
-				<Grid md={4} container columns={12}>
-					{secondThird.map((val, ind) =>
-						<Grid md={3} key={`second-third-${val.val}`}>
-							<GridInside insideNumber={val.val} red={val?.red} topEdge={ind < 4} placeBet={placeBet}
-								straightup={inside[(val.val - 1) * 4 + 1]}
-								splitleft={inside[(val.val - 1) * 4 + 2]}
-								splitbottom={inside[(val.val - 1) * 4 + 3]}
-								corner={inside[(val.val - 1) * 4 + 4]} />
-						</Grid>
-					)}
-				</Grid>
-				<Grid md={4} container columns={12}>
-					{thirdThird.map((val, ind) =>
-						<Grid md={3} key={`third-third-${val.val}`}>
-							<GridInside insideNumber={val.val} red={val?.red} topEdge={ind < 4} placeBet={placeBet}
-								straightup={inside[(val.val - 1) * 4 + 1]}
-								splitleft={inside[(val.val - 1) * 4 + 2]}
-								splitbottom={inside[(val.val - 1) * 4 + 3]}
-								corner={inside[(val.val - 1) * 4 + 4]} />
-						</Grid>
-					)}
-				</Grid>
-				<Grid md={1} sx={{ display: 'flex', alignItems: 'stretch' }}>
-					<Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-						<GridColumnBet topCard={true} columns={columns} index={0} bet={bet} placeBet={placeBet} />
-						<GridColumnBet columns={columns} index={1} bet={bet} placeBet={placeBet} />
-						<GridColumnBet bottomCard={true} columns={columns} index={2} bet={bet} placeBet={placeBet} />
+
+				<Box sx={{ mt: 2, display: 'flex', alignItems: 'flex-start', justifyContent: 'center', mb: 5 }}>
+					<Box sx={{ display: 'flex', flexDirection: 'column', mr: 10, mt: 2 }}>
+						<Typography variant='h3' color="text.accent">Roulette</Typography>
+						<TooltipWide title={<Typography>{rouletteTutorial}</Typography>}>
+							<Box sx={{ display: 'flex', alignItems: 'center' }} color='text.secondary'>
+								<Typography variant='h6'>Tutorial</Typography>
+								<InfoIcon sx={{ ml: 1 }} />
+							</Box>
+						</TooltipWide>
+						<TooltipWide
+							title={<Box sx={{ display: 'flex', flexDirection: 'column' }}>
+								{rouletteOdds.map((v, ind) => <Typography key={`tutorial-odds-${ind}`}>{v}</Typography>)}
+							</Box>}>
+							<Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }} color='text.secondary'>
+								<Typography variant='h6'>Odds</Typography>
+								<InfoIcon sx={{ ml: 1 }} />
+							</Box>
+						</TooltipWide>
 					</Box>
-				</Grid>
-
-				<Grid md={1} />
-				<Grid md={4}>
-					<GridOutsideBet onClick={(e) => placeBet(e, 'dozens', 0)}>
-						<Typography variant='h5'>1st 12</Typography>
-						{dozens[0] > 0 && <BetBox betValue={dozens[0]} betType='1st 12' onClick={(e) => placeBet(e, 'dozens', 0)} />}
-					</GridOutsideBet>
-				</Grid>
-				<Grid md={4}>
-					<GridOutsideBet onClick={(e) => placeBet(e, 'dozens', 1)}>
-						<Typography variant='h5'>2nd 12</Typography>
-						{dozens[1] > 0 && <BetBox betValue={dozens[1]} betType='2nd 12' onClick={(e) => placeBet(e, 'dozens', 1)} />}
-					</GridOutsideBet>
-				</Grid>
-				<Grid md={4}>
-					<GridOutsideBet rightCard={true} onClick={(e) => placeBet(e, 'dozens', 2)}>
-						<Typography variant='h5'>3rd 12</Typography>
-						{dozens[2] > 0 && <BetBox betValue={dozens[2]} betType='3rd 12' onClick={(e) => placeBet(e, 'dozens', 2)} />}
-					</GridOutsideBet>
-				</Grid>
-				<Grid md={1} sx={{ borderLeft: (theme) => `10px solid ${theme.palette.dark.card}` }} />
-
-				<Grid md={1} />
-				<Grid md={2}>
-					<GridOutsideBet onClick={(e) => placeBet(e, 'under')}>
-						<Typography variant='h5'>1-18</Typography>
-						{under > 0 && <BetBox betValue={under} betType='Under (1-18)' onClick={(e) => placeBet(e, 'under')} />}
-					</GridOutsideBet>
-				</Grid>
-				<Grid md={2}>
-					<GridOutsideBet onClick={(e) => placeBet(e, 'even')}>
-						<Typography variant='h5'>Even</Typography>
-						{even > 0 && <BetBox betValue={even} betType='Even' onClick={(e) => placeBet(e, 'even')} />}
-					</GridOutsideBet>
-				</Grid>
-				<Grid md={2}>
-					<GridOutsideBet onClick={(e) => placeBet(e, 'red')}>
-						<Box sx={{ width: '32px', height: '32px', backgroundColor: (theme) => theme.palette.game.red }} />
-						{red > 0 && <BetBox betValue={red} betType='Red' onClick={(e) => placeBet(e, 'red')} />}
-					</GridOutsideBet>
-				</Grid>
-				<Grid md={2}>
-					<GridOutsideBet onClick={(e) => placeBet(e, 'black')}>
-						<Box sx={{ width: '32px', height: '32px', backgroundColor: (theme) => theme.palette.dark.bg }} />
-						{black > 0 && <BetBox betValue={black} betType='Black' onClick={(e) => placeBet(e, 'black')} />}
-					</GridOutsideBet>
-				</Grid>
-				<Grid md={2}>
-					<GridOutsideBet onClick={(e) => placeBet(e, 'odd')}>
-						<Typography variant='h5'>Odd</Typography>
-						{odd > 0 && <BetBox betValue={odd} betType='Odd' onClick={(e) => placeBet(e, 'odd')} />}
-					</GridOutsideBet>
-				</Grid>
-				<Grid md={2}>
-					<GridOutsideBet rightCard={true} onClick={(e) => placeBet(e, 'over')}>
-						<Typography variant='h5'>19-36</Typography>
-						{over > 0 && <BetBox betValue={over} betType='Over (19-36)' onClick={(e) => placeBet(e, 'over')} />}
-					</GridOutsideBet>
-				</Grid>
-				<Grid md={1} sx={{ borderLeft: (theme) => `10px solid ${theme.palette.dark.card}` }} />
-			</Grid>
-
-			<Box sx={{ mt: 2, display: 'flex', alignItems: 'flex-start', justifyContent: 'center', mb: 5 }}>
-				<Box sx={{ display: 'flex', flexDirection: 'column', mr: 10, mt: 2 }}>
-					<Typography variant='h3' color="text.accent">Roulette</Typography>
-					<TooltipWide title={<Typography>{rouletteTutorial}</Typography>}>
-						<Box sx={{ display: 'flex', alignItems: 'center' }} color='text.secondary'>
-							<Typography variant='h6'>Tutorial</Typography>
-							<InfoIcon sx={{ ml: 1 }} />
-						</Box>
-					</TooltipWide>
-					<TooltipWide
-						title={<Box sx={{ display: 'flex', flexDirection: 'column' }}>
-							{rouletteOdds.map((v, ind) => <Typography key={`tutorial-odds-${ind}`}>{v}</Typography>)}
-						</Box>}>
-						<Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }} color='text.secondary'>
-							<Typography variant='h6'>Odds</Typography>
-							<InfoIcon sx={{ ml: 1 }} />
-						</Box>
-					</TooltipWide>
-				</Box>
-				<Box sx={{ display: 'flex', flexDirection: 'column' }}>
-					<TextFieldCurrency label='Bet Amount' variant='standard' value={bet} handleChange={handleBetChange} />
-					{balance < 0 ? <CircularProgress size='1.2rem' /> :
-						<Typography color='text.secondary'>Total Balance {currency(balance, { pattern: '#', precision: 4 }).format()}</Typography>}
-					<Typography color='text.secondary'>Current Bet Total {currency(total, { pattern: '#' }).format()}</Typography>
-				</Box>
-				<Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', ml: 3, mt: 1 }}>
-					<Tooltip title={<Typography>Undo last bet</Typography>}>
-						<span><IconButton disabled={(events.length === 0) || submitDisabled} onClick={revertEvent}><UndoIcon /></IconButton></span>
-					</Tooltip>
-					<Tooltip title={<Typography>Clear bet</Typography>}>
-						<IconButton sx={{ mt: 1 }} disabled={submitDisabled} onClick={reset}><ClearIcon /></IconButton>
-					</Tooltip>
-				</Box>
-				<Box sx={{ ml: 3, mt: 1 }}>
-					{rollResult >= 0 ?
-						<Box>
-							{winnings > 0 ? <Button onClick={handleWithdrawWinnings}>Collect</Button> : <Button onClick={reset}>Go Again</Button>}
-							<Box sx={{ mt: 1 }}>
-								<Typography>Rolled: {rollResult}</Typography>
-								<Typography>Returns (incl. winnings): {winnings}</Typography>
+					<Box sx={{ display: 'flex', flexDirection: 'column' }}>
+						<TextFieldCurrency label='Bet Amount' variant='standard' value={bet} handleChange={handleBetChange} />
+						{balance < 0 ? <CircularProgress size='1.2rem' /> :
+							<Typography color='text.secondary'>Total Balance {currency(balance, { pattern: '#', precision: 4 }).format()}</Typography>}
+						<Typography color='text.secondary'>Current Bet Total {currency(total, { pattern: '#' }).format()}</Typography>
+					</Box>
+					<Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', ml: 3, mt: 1 }}>
+						<Tooltip title={<Typography>Undo last bet</Typography>}>
+							<span><IconButton disabled={(events.length === 0) || submitDisabled} onClick={revertEvent}><UndoIcon /></IconButton></span>
+						</Tooltip>
+						<Tooltip title={<Typography>Clear bet</Typography>}>
+							<IconButton sx={{ mt: 1 }} disabled={submitDisabled} onClick={reset}><ClearIcon /></IconButton>
+						</Tooltip>
+					</Box>
+					<Box sx={{ ml: 3, mt: 1 }}>
+						{rollResult >= 0 ?
+							<Box>
+								{winnings > 0 ? <Button onClick={handleWithdrawWinnings}>Collect</Button> : <Button onClick={reset}>Go Again</Button>}
+								<Box sx={{ mt: 1 }}>
+									<Typography>Rolled: {rollResult}</Typography>
+									<Typography>Returns (incl. winnings): {winnings}</Typography>
+								</Box>
 							</Box>
-						</Box>
-						:
-						(correctNetwork ?
-							<Box sx={{ display: 'flex', flexDirection: 'column' }}>
-								<Button disabled={total === 0} loading={submitDisabled} onClick={() => lockBet()}>Submit Bet</Button>
-								{submitDisabled && rollResult < 0 && <Typography color='text.secondary'>Die being rolled, please wait...</Typography>}
-							</Box> :
-							<Box sx={{ display: 'flex', flexDirection: 'column' }}>
-								<Button onClick={() => switchNetwork()}>Switch Network</Button>
-							</Box>
-						)
-					}
+							:
+							(correctNetwork ?
+								<Box sx={{ display: 'flex', flexDirection: 'column' }}>
+									<Button disabled={total === 0} loading={submitDisabled} onClick={() => lockBet()}>Submit Bet</Button>
+									{submitDisabled && rollResult < 0 && <Typography color='text.secondary'>Die being rolled, please wait...</Typography>}
+								</Box> :
+								<Box sx={{ display: 'flex', flexDirection: 'column' }}>
+									<Button onClick={() => switchNetwork()}>Switch Network</Button>
+								</Box>
+							)
+						}
+					</Box>
 				</Box>
 			</Box>
-		</Box>
+		</ThemeProvider>
 	)
 }
