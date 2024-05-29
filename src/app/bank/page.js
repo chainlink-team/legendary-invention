@@ -1,7 +1,7 @@
 import GradientBorderButton from "@/components/GradientBorderButton";
 import Navbar from "@/components/Navbar";
 import HeaderText from "@/components/HeaderText";
-import Container from '@/components/Container';
+import Container from "@/components/Container";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import GradientBgButton from "@/components/GradientBgButton";
@@ -25,7 +25,11 @@ export default function Page() {
             <h5 className="text-sm">1 LINKS = $15.53</h5>
             <span className="text-xl text-sharp-purple">APY 0.03%</span>
           </div>
-          <GradientBorderButton>Lend</GradientBorderButton>
+          <div className=" w-1/12 flex items-end justify-center">
+            <GradientBorderButton classes="w-full h-2/3">
+              Lend
+            </GradientBorderButton>
+          </div>
         </div>
         <div className="w-full h-0.5 magic-gradient"></div>
         <Container heading="Borrow">
@@ -35,7 +39,12 @@ export default function Page() {
                 <div className="flex  flex-col gap-3">
                   <h5 className="text-xl font-sans">CURRENT</h5>
                   <span className="flex items-center mb-5 gap-1">
-                    <Image src='/images/Polygon.png' width={35} height={35} alt="polygon" />
+                    <Image
+                      src="/images/Polygon.png"
+                      width={35}
+                      height={35}
+                      alt="polygon"
+                    />
                     <p className="font-medium text-3xl">0</p>
                     <p className="text-sm font-sans opacity-50 flex self-end">
                       (Mumbia Testnet)
@@ -64,7 +73,12 @@ export default function Page() {
                 <div className="flex  flex-col gap-3">
                   <h5 className="text-xl font-sans">CURRENT</h5>
                   <span className="flex items-center mb-5 gap-1">
-                    <Image src='/images/Avax.png' width={35} height={35} alt="polygon" />
+                    <Image
+                      src="/images/Avax.png"
+                      width={35}
+                      height={35}
+                      alt="polygon"
+                    />
                     <p className="font-medium text-3xl">0</p>
                     <p className="text-sm font-sans opacity-50 flex self-end">
                       (Fuji Testnet)
@@ -104,7 +118,12 @@ export default function Page() {
                 <tr className="col-span-full h-0.5 w-full"></tr>
                 <tr className="">
                   <td className="flex py-4 gap-3 pl-10">
-                    <Image src='/images/Polygon.png' width={20} height={20} alt="polygon" />
+                    <Image
+                      src="/images/Polygon.png"
+                      width={20}
+                      height={20}
+                      alt="polygon"
+                    />
                     MATIC (Mumbia testnet)
                   </td>
                   <td className="px-5">$0.93</td>
@@ -117,7 +136,12 @@ export default function Page() {
                 </tr>
                 <tr className="py-4">
                   <td className="flex py-4 gap-3 pl-10">
-                    <Image src='/images/Polygon.png' width={20} height={20} alt="polygon" />
+                    <Image
+                      src="/images/Polygon.png"
+                      width={20}
+                      height={20}
+                      alt="polygon"
+                    />
                     MATIC (Mumbia testnet)
                   </td>
                   <td className="px-5">$0.93</td>
@@ -130,7 +154,12 @@ export default function Page() {
                 </tr>
                 <tr className="py-4">
                   <td className="flex py-4 gap-3 pl-10">
-                    <Image src='/images/Polygon.png' width={20} height={20} alt="polygon" />
+                    <Image
+                      src="/images/Polygon.png"
+                      width={20}
+                      height={20}
+                      alt="polygon"
+                    />
                     MATIC (Mumbia testnet)
                   </td>
                   <td className="px-5">$0.93</td>

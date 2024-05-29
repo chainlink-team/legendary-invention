@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useEffect, useRef } from "react";
 import {
   useConnectModal,
@@ -10,7 +10,7 @@ import "@rainbow-me/rainbowkit/styles.css";
 import { useRouter } from "next/navigation";
 
 export default function LaunchGameButton() {
-  const router = useRouter()
+  const router = useRouter();
   const { isConnecting, address, isConnected, chain } = useAccount();
   const { openConnectModal } = useConnectModal();
   const { openAccountModal } = useAccountModal();
@@ -23,15 +23,21 @@ export default function LaunchGameButton() {
     isMounted.current = true;
   }, []);
   return (
-    <a className="text-white font-display rounded-xl py-3 px-6 smooth-gradient" type="button" onClick={async () => {
-      if (!isConnected) {
-        if (isConnected) {
-          disconnect();
+    <a
+      className="text-white font-display cursor-pointer rounded-xl py-3 px-6 smooth-gradient"
+      type="button"
+      onClick={async () => {
+        if (!isConnected) {
+          if (isConnected) {
+            disconnect();
+          }
+          openConnectModal?.();
+        } else {
+          router.push("/game");
         }
-        openConnectModal?.();
-      } else{
-        router.push('/game')
-      }
-    }}>Launch game</a>
-  )
+      }}
+    >
+      Launch game
+    </a>
+  );
 }
