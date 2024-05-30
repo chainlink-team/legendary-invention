@@ -1,5 +1,6 @@
-import {createPublicClient, http, createWalletClient, custom} from 'viem'
+import { createPublicClient, http, createWalletClient, custom } from 'viem'
 import { polygonMumbai, avalancheFuji, mainnet } from 'viem/chains'
+import dynamic from 'next/dynamic';
 
 export const publicMainnetClient = createPublicClient({
 	chain: mainnet,
@@ -11,17 +12,17 @@ export const publicMumbaiClient = createPublicClient({
 	transport: http(),
 });
 
-export const walletMumbaiClient = createWalletClient({
+export const walletMumbaiClient = dynamic(() => createWalletClient({
 	chain: polygonMumbai,
 	transport: custom(window.ethereum)
-})
+}))
 
 export const publicFujiClient = createPublicClient({
 	chain: avalancheFuji,
 	transport: http()
 });
 
-export const walletFujiClient = createWalletClient({
+export const walletFujiClient = dynamic(() => createWalletClient({
 	chain: avalancheFuji,
 	transport: custom(window.ethereum)
-})
+}))

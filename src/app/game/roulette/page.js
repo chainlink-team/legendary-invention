@@ -210,7 +210,7 @@ const eventReducer = (state, action) => {
 	}
 }
 
-export default function GameRoulette({ ...props }) {
+export default function GameRoulette() {
 	const [events, dispatchEvents] = useReducer(eventReducer, [])
 
 	const [bet, setBet] = useState(0)
@@ -484,6 +484,7 @@ export default function GameRoulette({ ...props }) {
 
 	useEffect(() => {
 		const checkNetwork = async () => {
+			if (typeof window === "undefined") return
 			if (window.ethereum) {
 				const currentChaidId = await window.ethereum.request({ method: 'eth_chainId' });
 				if (currentChaidId === '0x13881') {
