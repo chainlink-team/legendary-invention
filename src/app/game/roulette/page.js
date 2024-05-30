@@ -502,11 +502,13 @@ export default function GameRoulette({ ...props }) {
 	}, [])
 
 	const switchNetwork = async () => {
-		await window.ethereum.request({
-			method: 'wallet_switchEthereumChain',
-			params: [{ chainId: '0x13881' }]
-		})
-		window.location.reload();
+		if (typeof window !== "undefined") {
+			await window.ethereum.request({
+				method: 'wallet_switchEthereumChain',
+				params: [{ chainId: '0x13881' }]
+			})
+			window.location.reload();
+		}
 	}
 
 	const theme = createTheme(muiStyles['dark'])
