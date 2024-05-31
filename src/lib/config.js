@@ -4,6 +4,7 @@ import { http, createStorage, cookieStorage } from 'wagmi'
 import { 
    mainnet,
 	polygon,
+	polygonAmoy,
 	optimism,
 	arbitrum,
 	goerli,
@@ -27,6 +28,7 @@ const projectId = `64df6621925fa7d0680ba510ac3788df`;
 const supportedChains = [
    mainnet,
 	polygon,
+	polygonAmoy,
 	arbitrum,
 	goerli,
 	polygonMumbai,

@@ -3,8 +3,10 @@
 import { WagmiProvider, cookieToInitialState } from "wagmi";
 import { RainbowKitProvider, darkTheme } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { LensProvider } from '@lens-protocol/react-web';
 
 import { config } from "@/lib/config";
+import { lensConfig } from "@/lib/LensConfig"
 
 const queryClient = new QueryClient();
 
@@ -23,7 +25,7 @@ export default function Providers({ children, cookie }) {
             overlayBlur: "small",
           })}
         >
-          {children}
+          <LensProvider config={lensConfig}>{children}</LensProvider>
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>

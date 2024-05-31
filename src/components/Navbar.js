@@ -1,7 +1,11 @@
 import Image from "next/image"
 import LaunchGameButton from "./LaunchGameButton"
+import { useAccount } from "wagmi";
+
 
 export default function Navbar() {
+
+  // const { address, isConnected, chain } = useAccount()
 
 
   return (
@@ -15,6 +19,7 @@ export default function Navbar() {
           <a className="text-hover-gradient-game" href="/game">Game</a>
           <a className="text-hover-gradient-bank" href="/bank">Bank</a>
         </div>
+        {/* {isConnected && chain ? '' : <LaunchGameButton />} */}
         <LaunchGameButton />
       </div>
       <div className="w-full h-0.5 magic-gradient"></div>
