@@ -40,7 +40,7 @@ export default function ConnectWalletButton() {
           className="bg-[#070005] rounded-xl py-3 px-6 h-full flex items-center"
           onClick={async () => openAccountModal?.()}
         >
-          {address}
+          {`${address.substring(0, 8)}......${address.slice(-6)}`}
         </div>
       )}
     </div>

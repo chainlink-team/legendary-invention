@@ -8,10 +8,14 @@ import GradientBorderButton from "./GradientBorderButton";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import { useModal } from "@/lib/context/ModalContext";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { isConnected, address } = useConnectWallet();
+  const { isConnected, address, disconnect } = useConnectWallet();
+  const { openModal } = useModal();
+  const router = useRouter();
   const navLinks = [
     {
       name: "Home",
@@ -60,14 +64,27 @@ export default function Navbar() {
               <GradientBorderButton classes="text-white">
                 {`${address.substring(0, 8)}......${address.slice(-6)}`}
               </GradientBorderButton>
-              <div className="bg-dark-pink absolute w-[120%] right-0  cursor-pointer flex flex-col gap-6 text-lg text-white">
-                <span className="flex p-2 items-center gap-3 hover:bg-dark-kiss ">
+              <div className="bg-dark-pink hidden absolute w-[120%] right-0  cursor-pointer group-hover:flex flex-col gap-6 text-lg text-white">
+                <span
+                  onClick={openModal}
+                  className="flex p-2 items-center gap-3 hover:bg-dark-kiss "
+                >
                   <AccountCircleIcon />
                   <span>Profile</span>
                 </span>
-                <span className="flex p-2 hover:bg-dark-kiss ">
+                <span
+                  onClick={() => router.push("/game")}
+                  className="flex p-2 items-center gap-3 hover:bg-dark-kiss "
+                >
+                  <SportsEsportsIcon />
+                  <span>Games</span>
+                </span>
+                <span
+                  onClick={disconnect}
+                  className="flex p-2 items-center gap-3 hover:bg-dark-kiss "
+                >
                   <LogoutIcon />
-                  Disconnect Wallet
+                  <span>Disconnect Wallet</span>
                 </span>
               </div>
             </div>
