@@ -19,7 +19,8 @@ module.exports = {
         "sharp-black": "#070005",
         "sharp-purple": "#D72E60",
         "dark-pink": "#13020E",
-        "dark-purple": "#090107"
+        "purple-magic": "#1F0317",
+        "dark-purple": "#090107",
       },
       fontFamily: {
         display: ["ClashDisplay-Variable"],
