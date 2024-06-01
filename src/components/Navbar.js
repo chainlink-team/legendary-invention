@@ -3,9 +3,19 @@ import Image from "next/image";
 import LaunchGameButton from "./LaunchGameButton";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useConnectWallet } from "@/lib/context/ConnectWalletContext";
+import GradientBorderButton from "./GradientBorderButton";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import LogoutIcon from "@mui/icons-material/Logout";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import { useModal } from "@/lib/context/ModalContext";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const { isConnected, address, disconnect } = useConnectWallet();
+  const { openModal } = useModal();
+  const router = useRouter();
   const navLinks = [
     {
       name: "Home",
@@ -48,7 +58,40 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-        <LaunchGameButton />
+        <div className="buttons flex gap-3">
+          {isConnected ? (
+            <div className="relative group">
+              <GradientBorderButton classes="text-white">
+                {`${address.substring(0, 8)}......${address.slice(-6)}`}
+              </GradientBorderButton>
+              <div className="bg-dark-pink hidden absolute w-[120%] right-0  cursor-pointer group-hover:flex flex-col gap-6 text-lg text-white">
+                <span
+                  onClick={openModal}
+                  className="flex p-2 items-center gap-3 hover:bg-dark-kiss "
+                >
+                  <AccountCircleIcon />
+                  <span>Profile</span>
+                </span>
+                <span
+                  onClick={() => router.push("/game")}
+                  className="flex p-2 items-center gap-3 hover:bg-dark-kiss "
+                >
+                  <SportsEsportsIcon />
+                  <span>Games</span>
+                </span>
+                <span
+                  onClick={disconnect}
+                  className="flex p-2 items-center gap-3 hover:bg-dark-kiss "
+                >
+                  <LogoutIcon />
+                  <span>Disconnect Wallet</span>
+                </span>
+              </div>
+            </div>
+          ) : (
+            <LaunchGameButton />
+          )}
+        </div>
       </div>
       <div className="w-full h-0.5 magic-gradient"></div>
     </nav>
