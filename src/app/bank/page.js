@@ -47,7 +47,7 @@ export default function Page() {
                     />
                     <p className="font-medium text-3xl">0</p>
                     <p className="text-sm font-sans opacity-50 flex self-end">
-                      (Mumbia Testnet)
+                      (Amoy Testnet)
                     </p>
                   </span>
                   <div>
