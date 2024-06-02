@@ -120,11 +120,11 @@ export default function Page() {
                   <td className="flex py-4 gap-3 pl-10">
                     <Image
                       src="/images/Polygon.png"
-                      width={20}
-                      height={20}
+                      width={24}
+                      height={24}
                       alt="polygon"
                     />
-                    MATIC (Mumbia testnet)
+                    MATIC (Amoy testnet)
                   </td>
                   <td className="px-5">$0.93</td>
                   <td>0.22</td>
@@ -138,11 +138,11 @@ export default function Page() {
                   <td className="flex py-4 gap-3 pl-10">
                     <Image
                       src="/images/Polygon.png"
-                      width={20}
-                      height={20}
+                      width={24}
+                      height={24}
                       alt="polygon"
                     />
-                    MATIC (Mumbia testnet)
+                    MATIC (Amoy testnet)
                   </td>
                   <td className="px-5">$0.93</td>
                   <td>0.22</td>
@@ -156,11 +156,11 @@ export default function Page() {
                   <td className="flex py-4 gap-3 pl-10">
                     <Image
                       src="/images/Polygon.png"
-                      width={20}
-                      height={20}
+                      width={24}
+                      height={24}
                       alt="polygon"
                     />
-                    MATIC (Mumbia testnet)
+                    MATIC (Amoy testnet)
                   </td>
                   <td className="px-5">$0.93</td>
                   <td>0.22</td>
