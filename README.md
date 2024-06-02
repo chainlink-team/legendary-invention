@@ -41,12 +41,13 @@ PowerPlay was developed using a combination of Chainlink services and blockchain
 - **Time Constraints**: Limited time prevented the implementation of gasless transactions and Lens protocol integration.
 
 ## Accomplishments That We're Proud Of
-- **Tested, Deployed, and Verified Contracts**:
+- **Tested, Deployed, and Verified Contracts**: 
   - **Polygon Amoy**: [View on OKLink](https://www.oklink.com/amoy/address/0x559e845af1b4da1139c2d5b33cd72a81bd1557cc/contract)
   - **Polygon Cardano**: [View on PolygonScan](https://cardona-zkevm.polygonscan.com/address/0x7D28aD92df4cDF6CA3ffD1E1d5c412800d7d6C76)
   - **Avalanche Fuji**: [View on SnowTrace](https://testnet.snowtrace.io/address/0x73610d151447Ebf8f86A49Ff003c1e22c4d47c80/contract/43113/code)
   - **Metis Sepolia**: [View on Metis Explorer](https://sepolia-explorer.metisdevops.link/address/0x0175DD80dc6EEE9b5443E31036D184Ea895D74a9)
   - **Scroll Sepolia**: [View on ScrollScan](https://sepolia.scrollscan.com/address/0x7D28aD92df4cDF6CA3ffD1E1d5c412800d7d6C76)
+- **For Smart Contracts Code Visit: https://github.com/chainlink-team/smart-contracts**
 - **Fair and Transparent Platform**: Developed a platform that counters the exploitative practices of existing platforms.
 - **Chainlink Integration**: Successfully integrated multiple Chainlink services to create a robust and trustworthy system.
 - **User-Friendly Interface**: Created a visually appealing and user-friendly interface, making the platform accessible and engaging.
