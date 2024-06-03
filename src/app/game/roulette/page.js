@@ -84,7 +84,7 @@ function GridInside({
 					</Box>
 					<Box sx={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
 						{topEdge && <Box sx={{ height: '10px', backgroundColor: (theme) => theme.palette.dark.card }}></Box>}
-						<Box sx={{ position: 'relative', flex: 5, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}
+						<Box sx={{ position: 'relative', flex: 5, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: 'white' }}
 							id='straight-bet' onClick={(e) => placeBet(e, 'inside', (insideNumber - 1) * 4 + 1)}>
 							<Typography variant='h5'>{insideNumber}</Typography>
 							{straightup > 0 && <BetBox betValue={straightup} betType={'Straight up'} onClick={(e) => placeBet(e, 'inside', (insideNumber - 1) * 4 + 1)} />}

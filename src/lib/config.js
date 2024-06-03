@@ -1,5 +1,8 @@
 'use client';
-
+import {
+	DynamicContextProvider,
+	DynamicWidget,
+  } from "@dynamic-labs/sdk-react-core";
 import { http, createStorage, cookieStorage } from 'wagmi'
 import { 
    mainnet,
@@ -40,6 +43,7 @@ const supportedChains = [
 export const config = getDefaultConfig({
    appName: 'Powerplay',
    projectId,
+   multiInjectedProviderDiscovery: false,
    chains: supportedChains,
    ssr: true,
    storage: createStorage({
