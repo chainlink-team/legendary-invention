@@ -4,11 +4,13 @@ import avatar from "@/images/avatar.png";
 import GradientBgButton from "./GradientBgButton";
 import GradientBorderButton from "./GradientBorderButton";
 import { useState } from "react";
-import { useModal } from "@/lib/context/ModalContext";
+// import { useModal } from "@/lib/context/ModalContext";
 
 export default function AiModal() {
   const [editing, setEditing] = useState(false);
-  const { closeModal, isModalOpen } = useModal();
+  // const { closeModal, isModalOpen } = useModal();
+  const isModalOpen = false
+  const closeModal = false
   return (
     <div
       className={`top-0 duration-100 text-white fixed flex justify-center items-center z-40 w-full h-full backdrop-blur-sm  ${

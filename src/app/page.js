@@ -8,7 +8,7 @@ import FeatureGameSection from '@/components/FeatureGameSection'
 
 export default function Home() {
   return (
-    <main className="bg-[#070005]">
+    <div className="bg-[#070005]">
       <Navbar />
       <HeroSection />
       <SponsorSection />
@@ -16,6 +16,6 @@ export default function Home() {
       <FeatureGameSection />
       <LetsPlaySection />
       <Footer />
-    </main>
+    </div>
   )
 }

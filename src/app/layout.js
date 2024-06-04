@@ -1,9 +1,11 @@
 import "@/styles/globals.css";
-import Providers from "./providers";
-import { headers } from "next/headers";
+// import Providers from "./providers";
+// import { headers } from "next/headers";
 import AiModal from "@/components/AiModal";
-import { ModalProvider } from "@/lib/context/ModalContext";
-import { ConnectWalletProvider } from "@/lib/context/ConnectWalletContext";
+import {
+  DynamicContextProvider,
+  EthereumWalletConnectors,
+} from "@/lib/dynamic";
 
 export const metadata = {
   title: "Powerplay",
@@ -11,16 +13,23 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const cookie = headers().get("cookie");
+  // const cookie = headers().get("cookie");
 
   return (
     <html lang="en">
-      <body>
-        <Providers cookie={cookie}>
+      <DynamicContextProvider
+        settings={{
+          theme: 'dark',
+          // Find your environment id at https://app.dynamic.xyz/dashboard/developer
+          environmentId: '47c1c3de-d89f-4b94-9783-2c0075cae660',
+          walletConnectors: [EthereumWalletConnectors],
+        }}
+      >
+        <body>
           <AiModal />
           {children}
-        </Providers>
-      </body>
+        </body>
+      </DynamicContextProvider>
     </html>
   );
 }

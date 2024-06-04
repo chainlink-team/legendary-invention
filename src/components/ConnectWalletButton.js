@@ -1,46 +1,34 @@
 "use client";
 import { useEffect } from "react";
-import { useConnectWallet } from "@/lib/context/ConnectWalletContext";
+// import { useConnectWallet } from "@/lib/context/ConnectWalletContext";
+import { useDynamicContext } from "@dynamic-labs/sdk-react-core";
+import { handleClientScriptLoad } from "next/script";
 
 export default function ConnectWalletButton() {
-  const {
-    isConnected,
-    isConnecting,
-    isMounted,
-    address,
-    chain,
-    openAccountModal,
-    openConnectModal,
-    openChainModal,
-    disconnect,
-  } = useConnectWallet();
+  
+  const { setShowAuthFlow, user, primaryWallet, handleLogout } = useDynamicContext();
 
-  useEffect(() => {
-    isMounted.current = true;
-  }, [isMounted]);
+  const onClickHandler = () => {
+    // setDefaultTabIndex(1); // Set the default tab index to 1, which corresponds to the Ethereum tab
+    setShowAuthFlow(true);
+  };
 
+  
   return (
     <div className="bg-gradient-to-r from-red-magic to-blue-magic hover-gradient-shadow rounded-xl p-0.5 cursor-pointer">
-      {!isConnected ? (
+      {!user ? (
         <div
           className="bg-[#070005] rounded-xl py-3 px-6 h-full flex items-center"
-          onClick={async () => {
-            // Disconnecting wallet first because sometimes when is connected but the user is not connected
-            if (isConnected) {
-              disconnect();
-            }
-            openConnectModal?.();
-          }}
-          disabled={isConnecting}
+          onClick={onClickHandler}
         >
-          {isConnecting ? "Connecting..." : "Connect wallet"}
+          Connect wallet
         </div>
       ) : (
         <div
           className="bg-[#070005] rounded-xl py-3 px-6 h-full flex items-center"
-          onClick={async () => openAccountModal?.()}
+          onClick={handleLogout}
         >
-          {`${address.substring(0, 8)}......${address.slice(-6)}`}
+          {`${primaryWallet?.address.substring(0, 8)}......${primaryWallet?.address.slice(-6)}`}
         </div>
       )}
     </div>

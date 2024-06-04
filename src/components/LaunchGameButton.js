@@ -5,17 +5,17 @@ import {
   useAccountModal,
   useChainModal,
 } from "@rainbow-me/rainbowkit";
-import { useAccount, useDisconnect } from "wagmi";
-import "@rainbow-me/rainbowkit/styles.css";
+// import { useAccount, useDisconnect } from "wagmi";
+// import "@rainbow-me/rainbowkit/styles.css";
 import { useRouter } from "next/navigation";
 
 export default function LaunchGameButton() {
   const router = useRouter();
-  const { isConnecting, address, isConnected, chain } = useAccount();
-  const { openConnectModal } = useConnectModal();
-  const { openAccountModal } = useAccountModal();
-  const { openChainModal } = useChainModal();
-  const { disconnect } = useDisconnect();
+  // const { isConnecting, address, isConnected, chain } = useAccount();
+  // const { openConnectModal } = useConnectModal();
+  // const { openAccountModal } = useAccountModal();
+  // const { openChainModal } = useChainModal();
+  // const { disconnect } = useDisconnect();
 
   const isMounted = useRef(false);
 
@@ -25,17 +25,7 @@ export default function LaunchGameButton() {
   return (
     <a
       className="text-white font-display cursor-pointer rounded-xl py-3 px-6 smooth-gradient"
-      type="button"
-      onClick={async () => {
-        if (!isConnected) {
-          if (isConnected) {
-            disconnect();
-          }
-          openConnectModal?.();
-        } else {
-          router.push("/game");
-        }
-      }}
+      type="button" href="/game"
     >
       Launch game
     </a>

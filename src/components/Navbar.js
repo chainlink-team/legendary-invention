@@ -3,18 +3,17 @@ import Image from "next/image";
 import LaunchGameButton from "./LaunchGameButton";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useConnectWallet } from "@/lib/context/ConnectWalletContext";
 import GradientBorderButton from "./GradientBorderButton";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
-import { useModal } from "@/lib/context/ModalContext";
 import { useRouter } from "next/navigation";
+import { useDynamicContext } from "@dynamic-labs/sdk-react-core";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { isConnected, address, disconnect } = useConnectWallet();
-  const { openModal } = useModal();
+  const { setShowAuthFlow, user, primaryWallet, handleLogout } = useDynamicContext();
+
   const router = useRouter();
   const navLinks = [
     {
@@ -59,14 +58,13 @@ export default function Navbar() {
           ))}
         </div>
         <div className="buttons flex gap-3">
-          {isConnected ? (
+          {user ? (
             <div className="relative group">
               <GradientBorderButton classes="text-white">
-                {`${address.substring(0, 8)}......${address.slice(-6)}`}
+                {`${primaryWallet?.address.substring(0, 8)}......${primaryWallet?.address.slice(-6)}`}
               </GradientBorderButton>
               <div className="bg-dark-pink hidden absolute w-[120%] right-0  cursor-pointer group-hover:flex flex-col gap-6 text-lg text-white">
                 <span
-                  onClick={openModal}
                   className="flex p-2 items-center gap-3 hover:bg-dark-kiss "
                 >
                   <AccountCircleIcon />
@@ -80,7 +78,7 @@ export default function Navbar() {
                   <span>Games</span>
                 </span>
                 <span
-                  onClick={disconnect}
+                  onClick={handleLogout}
                   className="flex p-2 items-center gap-3 hover:bg-dark-kiss "
                 >
                   <LogoutIcon />
