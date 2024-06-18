@@ -4,7 +4,7 @@ import {
   DynamicWidget,
 } from '@dynamic-labs/sdk-react-core';
 import { EthereumWalletConnectors } from '@dynamic-labs/ethereum';
-// import { DynamicWagmiConnector } from "@dynamic-labs/wagmi-connector";
+import { DynamicWagmiConnector } from "@dynamic-labs/wagmi-connector";
 import { WagmiProvider, cookieToInitialState } from "wagmi";
 import { RainbowKitProvider, darkTheme } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -32,6 +32,6 @@ export default function Providers({ children, cookie }) {
         </QueryClientProvider>
       </WagmiProvider>
     </DynamicContextProvider>
-    
+
   );
 }
